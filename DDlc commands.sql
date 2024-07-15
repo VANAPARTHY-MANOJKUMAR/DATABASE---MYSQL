@@ -4,8 +4,10 @@ create table items(fruit varchar(50),Quantity int,Price int,counter_no int);
 desc items;
 insert into items(fruit,Quantity,Price,counter_no) values("mango",12,110,5);
 
+----  altering the table and modifying the datatype of the column from int to varchar ----
 alter table items modify column  Quantity varchar(50);
 desc items;
+---- updating the data that is into varchar from int ----
 update items set Quantity="12kgs" where Quantity=12;
 select * from items;insert into items(fruit,Quantity,Price,counter_no) values("orange","10kgs",130,4);
 insert into items(fruit,Quantity,Price,counter_no) values("banana","15kgs",40,1),("goa","13kgs",60,3);
@@ -13,13 +15,17 @@ update items set Quantity="12kgs" where Quantity="12";
 select * from items;
  create table  mango(Quantity varchar(50),Price int,counter_no int);
  desc mango;
+---- inserting the values using the select statement ----
  insert into mango(Quantity,Price,counter_no) select Quantity,Price,counter_no from items where fruit="mango";
  select * from mango;
  create table banana(Quantity varchar(50),Price int ,counter_no int);
  insert into banana(Quantity,Price,counter_no) select Quantity,Price,counter_no from items where fruit="banana";
  select * from banana;
  select * from items;
- truncate items;
+---- truncate is used for deleting the data present in the table but structure remains ----
+truncate items;
+
+---- again using the table items and inserting values ----
  insert into items values("banana","15kgs",60,101),("mango","20kgs",50,102);
  select * from items;
  insert into items values("goa","10kgs",55,103),("apple","12kgs",65,104),("cherry","9kgs",75,105);
@@ -44,13 +50,14 @@ select * from items;
  create table apple(fruit varchar(100),Quantity varchar(50),Price int,counter_no int);
  insert into apple(fruit,Quantity,Price,counter_no) select fruit,Quantity,Price,counter_no from items where fruit="apple";
  select * from apple;
+---- truncate the apple table ----
   truncate apple;
-   desc apple;
+desc apple;
    
  create table goa(fruit varchar(100),Quantity varchar(50),Price int,counter_no int);
  insert into goa(fruit,Quantity,Price,counter_no) select fruit,Quantity,Price,counter_no from items where fruit="goa";
  select * from goa;
-
+---- drop is used to delete the table with structure we cannot use the table again ----
 drop table goa;
  
  
