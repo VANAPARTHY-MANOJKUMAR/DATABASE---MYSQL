@@ -1,4 +1,4 @@
-use collage;
+
 create table students(ID int key auto_increment,NAME varchar(100) not null,COURSE varchar(50),MOBILE int);
 desc students;
 insert into students(NAME,COURSE,MOBILE) values("manoj","cse",8106444512),("vasu","civil","9948989648");
